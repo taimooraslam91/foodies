@@ -1,10 +1,14 @@
-import { resturants } from "../../data";
 import VendorCard from "./VendorCard";
+import { Restaurant } from "../../types/data";
 
-function CardList() {
+interface CardListProps {
+  restaurants: Restaurant[];
+}
+
+function CardList({ restaurants }: CardListProps) {
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      {resturants.map((resturant: any) => (
+      {restaurants.map((resturant: any) => (
         <VendorCard resturant={resturant} />
       ))}
     </div>

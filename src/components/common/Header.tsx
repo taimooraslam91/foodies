@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import { Dialog, Disclosure } from "@headlessui/react";
 import SideCart from "./SideCart";
 import {
@@ -65,7 +65,12 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Header() {
+interface HeaderProps {
+  searchTerm: string;
+  handleSearch: (event: ChangeEvent<HTMLInputElement>) => void;
+}
+
+export default function Header({ searchTerm, handleSearch }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [sideCart, setSideCart] = useState<boolean>(false);
 
@@ -110,6 +115,8 @@ export default function Header() {
                 <input
                   type="search"
                   id="default-search"
+                  value={searchTerm}
+                  onChange={handleSearch}
                   className="block p-3 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-pink-500 focus:border-pink-500 outline-none"
                   placeholder="Search Food, Groceries..."
                   required

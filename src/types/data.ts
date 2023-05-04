@@ -10,5 +10,3 @@ export interface Restaurant {
   imageSrc: string;
   imageAlt: string;
 }
-
-export declare const restaurants: Restaurant[];

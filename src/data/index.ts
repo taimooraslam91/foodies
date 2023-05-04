@@ -1,6 +1,6 @@
 import { Restaurant } from "../types/data";
 
-export const resturants: Restaurant[] = [
+export const restaurants: Restaurant[] = [
   {
     id: 1,
     name: "Desi Chaska",
