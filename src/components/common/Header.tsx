@@ -71,7 +71,7 @@ interface HeaderProps {
 }
 
 export default function Header({ searchTerm, handleSearch }: HeaderProps) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [sideCart, setSideCart] = useState<boolean>(false);
 
   return (
