@@ -1,5 +1,4 @@
 import { useState, ChangeEvent } from "react";
-import { Link } from "react-router-dom";
 import { Dialog, Disclosure } from "@headlessui/react";
 import SideCart from "./SideCart";
 import {
@@ -17,6 +16,7 @@ import {
   PlayCircleIcon,
 } from "@heroicons/react/20/solid";
 import logo from "../../assets/logo.png";
+import { Link } from "react-router-dom";
 
 const products = [
   {
@@ -66,12 +66,7 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-interface HeaderProps {
-  searchTerm: string;
-  handleSearch: (event: ChangeEvent<HTMLInputElement>) => void;
-}
-
-export default function Header({ searchTerm, handleSearch }: HeaderProps) {
+export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [sideCart, setSideCart] = useState<boolean>(false);
 
@@ -87,43 +82,6 @@ export default function Header({ searchTerm, handleSearch }: HeaderProps) {
               <span className="sr-only">Your Company</span>
               <img className="h-8 w-auto" src={logo} alt="" />
             </Link>
-          </div>
-          <div className="w-full max-w-lg">
-            <form>
-              <label
-                htmlFor="default-search"
-                className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300"
-              >
-                Search
-              </label>
-              <div className="relative">
-                <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                  <svg
-                    className="w-5 h-5 text-gray-500 dark:text-gray-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                    ></path>
-                  </svg>
-                </div>
-                <input
-                  type="search"
-                  id="default-search"
-                  value={searchTerm}
-                  onChange={handleSearch}
-                  className="block p-3 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-pink-500 focus:border-pink-500 outline-none"
-                  placeholder="Search Food, Groceries..."
-                  required
-                />
-              </div>
-            </form>
           </div>
           <div className="flex lg:hidden">
             <button

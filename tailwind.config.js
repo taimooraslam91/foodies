@@ -4,6 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {},
+      height: {
+        200: "200px",
+      },
     },
   },
   plugins: [],
